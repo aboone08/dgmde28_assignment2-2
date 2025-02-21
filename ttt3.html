@@ -4,7 +4,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
-<title>Assignment 2-1</title>
+<title>Assignment 2-2</title>
   <style type="text/css">
     .board {display: flex; flex-wrap: wrap; width: 350px;}
     /*.column {flex: 1; display: flex; flex-direction: column; justify-content: space-around;} removed this portion of the code because the html code for the 9 boxes was removed and there is no longer a column class.*/
@@ -18,8 +18,89 @@
 <body>
     <h1>Assignment 2: Tic Tac Toe Part 1</h1>
     <h2>- Tic Tac Toe - </h2>
-  <div class='board'>
-   <!-- javascript added -->
+  <div class='board'> <!-- event handler goes to this div. that represent the squares such that when you click in a square it will put an X in the square and a popup will display the number of the square where 0 is the first square up to 8 for the last square.  One event handler should be able to work for all squares.  Modify the previous Javascript as needed.-->
+   <!-- javascript added --><!DOCTYPE html>
+<html>
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap" rel="stylesheet">
+<title>Assignment 2-2</title>
+  <style type="text/css">
+    .board {display: flex; flex-wrap: wrap; width: 350px;}
+    /*.column {flex: 1; display: flex; flex-direction: column; justify-content: space-around;} removed this portion of the code because the html code for the 9 boxes was removed and there is no longer a column class.*/
+    .square:hover { background-color: #A41034;}
+    .square {border: solid, black, 1px; width: 100px; height: 100px; margin: 5px; display: flex;  justify-content: space-around; text-align: center; font-family:'Permanent Marker' ; font-size: 60px;}
+    .player_turn {border: dashed, black, 1px; margin: 5px; padding: 5px;}
+    .win_condition {border: dashed, black, 1px; margin: 5px; padding: 5px;}
+  </style>
+</head>
+<body>
+    <h1>Assignment 2: Tic Tac Toe Part 1</h1>
+    <h2>- Tic Tac Toe -</h2>
+    <div class='board' id='board'></div>
+        <div class='player_turn' id='player_turn'>
+            Player Turn: Placeholder
+        </div>
+        <div class='win_condition'>
+            Win Condition Goes Here
+        </div>
+
+        <script> 
+          /*  Javascript code from ttt2.html 
+          const NUM_SQUARES = 9;
+          for (i=0; i<NUM_SQUARES; i++)
+          {
+              id = "sq"+i;
+              document.write( "<div class='square' id='" + id + "'></div>" );
+            } 
+    
+            document.getElementById("sq0").innerHTML = 'X';
+            document.getElementById("sq4").innerHTML = 'X';
+            document.getElementById("sq8").innerHTML = 'O';*/
+
+           // New Javascript code for ttt3.html 
+           window.onload = function(){
+            //board = document.getElementById('board');
+            const square = document.getElementById('sq');
+            let currentPlayer = 'X';
+            const NUM_SQUARES = 9;
+            for (let i=0; i<NUM_SQUARES; i++){
+                let square = document.createElement('sq');
+                square.classList.add('square');
+                square.id = 'sq' + i;
+                square.addEventListener('click', function(){
+                   if (!square.innerHTML) {
+                    square.innerHTML = 'X'; 
+                    }     
+                    alert('Square ' + i + ' clicked');
+            });
+            board.appendChild(square);
+            } 
+        };
+        </script>
+   
+  <!-- previous content from ttt1.html, replaced by javascript above
+      <div class='column'>
+        <div class='square'>X</div>
+        <div class='square'></div>
+        <div class='square'></div>
+    </div>
+    <div class='column'>
+        <div class='square'></div>
+        <div class='square'>X</div>
+        <div class='square'></div> 
+    </div>
+    <div class='column'>
+        <div class='square'></div>
+        <div class='square'></div>
+        <div class='square'>O</div>
+    </div>
+    -->
+  
+  </div>
+</body>
+</html>
     <script> 
         const NUM_SQUARES = 9;
       for (i=0; i<NUM_SQUARES; i++)
