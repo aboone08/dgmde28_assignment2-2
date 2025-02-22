@@ -42,9 +42,11 @@
            window.onload = function(){
             //board = document.getElementById('board');
             const square = document.getElementById('sq');
-            let currentPlayer = 'X'; 
+           // let currentPlayer = 'X'; from ttt3.html
             const move = document.getElementById('player_turn');
             const NUM_SQUARES = 9;
+            let currentPlayer = Math.random() < 0.5 ? 'X' : 'O'; //code that randomly chooses if X or O goes first
+            move.innerHTML = currentPlayer + ', you start this round.' //code that indicates who goes first.
 
             for (let i=0; i<NUM_SQUARES; i++){
                 let square = document.createElement('sq');
